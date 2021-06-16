@@ -18,15 +18,14 @@ import (
 func New(app app.App) *http.Server {
 	e := echo.New()
 
-	 e.Use(secure.Middleware())
-	 e.Use(recovery.Middleware())
+	e.Use(secure.Middleware())
+	e.Use(recovery.Middleware())
 	e.Use(secure.MiddlewareBasicAuth(app.Config))
-
 
 	health.RegisterRoutes(e)
 
 	userGroup := e.Group("/v1/users")
-	user.RegisterRoutes(userGroup,app)
+	user.RegisterRoutes(userGroup, app)
 
 	errors.RegisterErrorHandler(e, app)
 

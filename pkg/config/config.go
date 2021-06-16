@@ -1,10 +1,7 @@
 package config
 
 import (
-	"log"
 	"os"
-
-	"github.com/joho/godotenv"
 )
 
 // Config contains the environment specific configuration values needed by the
@@ -25,11 +22,7 @@ type Config struct {
 // New returns an instance of Config based on the "ENVIRONMENT" environment
 // variable.
 func New() (Config, error) {
-	err := godotenv.Load(".env")
 
-  if err != nil {
-    log.Fatalf("Error loading .env file")
-  }
 	cfg := Config{
 		DatabasePort:              3306,
 		DatabaseHost: os.Getenv("DATABASE_HOST"),

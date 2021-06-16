@@ -9,8 +9,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-
-
 func main() {
 	
 	app, err := app.New()

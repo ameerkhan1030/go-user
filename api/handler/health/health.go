@@ -8,6 +8,7 @@ import (
 
 var resp = []byte(`{"healthy":true}`)
 
+
 // RegisterRoutes takes in an Echo router and registers routes onto it.
 func RegisterRoutes(e *echo.Echo) {
 	e.GET("/health", healthHandler)
